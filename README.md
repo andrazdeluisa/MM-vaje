@@ -1,2 +1,2 @@
 # MM-vaje
-Matematično modeliranje
+ Vaje pri predmetu Matematično modeliranje
