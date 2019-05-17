@@ -11,10 +11,11 @@ figure
 
 Z = linspace(0, 10*pi);
 plot3(cos(Z), sin(Z), Z);
+figure
 
-h = @(x,y) (x.^2 + y.^2)/(1+x+y);
-x = linspace(0,1);
-y = linspace(0,1);
+h = @(x,y) (x.^2 + y.^2)./(1+x+y);
+x = linspace(0,1,20);
+y = linspace(0,1,20);
 [A,B] = meshgrid(x,y);
 F = h(A,B);
 surf(A,B,F);
