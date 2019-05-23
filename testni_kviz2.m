@@ -18,3 +18,13 @@ cetrta = (det([deCasteljau(db,0.5) deCasteljau(ddb,0.5)]))/norm(deCasteljau(db,0
 
 visja_stopnja = bez_visja_stopnja(b);
 sedma = [1 0] * visja_stopnja*[1 1 1 1 1]';
+
+f = @(t)ordinata_odvoda_bez(b,t);
+
+osma = fzero(f, 0);
+
+A = [2;0.5];
+
+g = @(t) skalarni_produkt_bez(b,t,A);
+
+deveta = norm(deCasteljau(b,fzero(g, 0))-A);
