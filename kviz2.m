@@ -3,12 +3,23 @@ format long
 a = 41;
 T0 = [0;3];
 T1=[3;a/100];
-g = 9.8;
+G = 9.8;
 
 options = optimset('TolX', 1e-10);
 
+y = @(x) (300-a)/900*x.^2 -6*(300-a)/900*x +3;
+prva = y(1);
 
+razd = @(x) x^2 + y(x)^2;
+druga = fminbnd(razd,0,3,options);
 
+dy = @(x) 2*(300-a)/900*x - 6*(300-a)/900;
+k = @(x) sqrt(1+dy(x).^2);
+h = @(x) integral(k,0,x)-3/4*integral(k,0,3);
+tretja = fzero(h,2);
+
+m = @(x) k(x)./(sqrt(2*G)*sqrt(y(x)));
+cetrta = integral(m,0,3);
 
 % 2. vaja
 c = 96;
