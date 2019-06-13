@@ -1,4 +1,4 @@
-risi_brah([0 0],[10,-1])
-
-% izracunaj se trajanje potovanja po premici in brahistohroni
-% izracunaj se absciso najnizje tocke na krivulji
+% test brahistohrone
+T1 = [1 1];
+T2 = [3 0];
+risi_brah(T1,T2);
