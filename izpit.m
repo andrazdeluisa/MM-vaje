@@ -53,3 +53,26 @@ sesta = sqrt((presecisce2-presecisce1)^2 + (w(presecisce2)-w(presecisce1))^2);
 m = @(l) najnizja_vrednost(T1,T2,l,tol);
 sedma = fzero(m,10);
 
+% 3. vaja
+
+c = 83;
+b = [0 1 3+c/100 4; 1 2 2 -1];
+
+v = [1;-1];
+g = @(t) vzporedna_s_premico(b,v,t);
+osma = fzero(g,1);
+
+tang = bezier_der(b,0.6,false);
+v2 = [1;1/2];
+kot = (tang'*v2)/(sqrt(tang'*tang)*sqrt(v2'*v2));
+deveta = acos(kot);
+
+pomozna = @(t) y_bez_der(b,t);
+pomozna2 = @(t) sqrt(1+pomozna(t).^2);
+dolzina = integral(pomozna,0,4);
+
+ploscina = @(t) abs(y_bez(b,t) - 2)*(2+c/100)/2;
+
+xmin = fminsearch(ploscina,0);
+enajsta = ploscina(xmin);
+

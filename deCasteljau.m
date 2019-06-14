@@ -8,7 +8,7 @@ function tocka = deCasteljau(b,t)
 n=size(b,2)-1;
 
 for r=1:n
-    b(:,1:end-r) = (1-t)*b(:,1:end-r) + t*b(:,2:end-r+1);
+    b(:,1:end-r) = (1-t).*b(:,1:end-r) + t.*b(:,2:end-r+1);
 end
 tocka = b(:,1);
 
