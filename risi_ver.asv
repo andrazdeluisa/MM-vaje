@@ -1,4 +1,4 @@
-function [w,D,C] = risi_ver(T1,T2,l,tol)
+function w = risi_ver(T1,T2,l,tol)
 % RISI_VER narise zvezno veriznico. Pri tem so:
 % T1 in T2 sta krajisci veriznice oblike T1(a,A) in
 % T2(b,B),
